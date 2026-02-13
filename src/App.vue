@@ -3,7 +3,7 @@ import Layout from './layouts/Layout.vue'
 
 import Home from './pages/Home.vue'
 import Completed from './pages/Completed.vue'
-import UnCompleted from './pages/UnCompleted.vue'
+import Active from './pages/Active.vue'
 
 let id = 0;
 
@@ -29,7 +29,7 @@ export default {
       return {
         Home,
         Completed,
-        UnCompleted
+        Active
       }[this.currentView]
     }
   },

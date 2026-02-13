@@ -12,7 +12,7 @@
       },
     },
     computed: {
-      uncompletedTodos() {
+      ActiveTodos() {
         return (this.todos || []).filter((todo) => !todo.completed);
       },
     },
@@ -20,18 +20,18 @@
 </script>
 
 <template>
-  <h2 class="mb-4 text-lg font-semibold">UnCompleted</h2>
+  <h2 class="mb-4 text-lg font-semibold">Active</h2>
   <ul class="w-full md:w-1/2">
     <TodoItem
-      v-for="todo in uncompletedTodos"
+      v-for="todo in ActiveTodos"
       :key="todo.id"
       :todo="todo"
       @toggle="$emit('toggle', $event)"
       @remove="$emit('remove', $event)"
     />
   </ul>
-  <p v-if="uncompletedTodos.length === 0" class="text-gray-400">
-    未完了のタスクはありません
+  <p v-if="ActiveTodos.length === 0" class="text-gray-400">
+    No active tasks.
   </p>
 </template>
 

@@ -32,8 +32,8 @@
       @remove="$emit('remove', todo.id)"
     />
     <p v-if="completedTodos.length === 0" class="text-gray-400">
-    完了のタスクはありません
-  </p>
+      No completed tasks.
+    </p>
   </ul>
 </template>
 

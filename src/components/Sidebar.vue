@@ -11,8 +11,8 @@
         Completed
       </li>
 
-      <li @click="$emit('navigate', 'UnCompleted')" class="cursor-pointer hover:text-gray-300">
-        UnCompleted
+      <li @click="$emit('navigate', 'Active')" class="cursor-pointer hover:text-gray-300">
+        Active
       </li>
     </ul>
   </nav>
