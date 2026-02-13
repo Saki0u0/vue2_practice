@@ -22,7 +22,7 @@
       <input
         type="checkbox"
         :checked="todo.completed"
-        @change="() => { console.log('TodoItem click:', todo.id); $emit('toggle', todo.id) }"
+        @change="() => { $emit('toggle', todo.id) }"
         class="mr-2 cursor-pointer"
       />
       <span :class="{ 'line-through text-gray-400': todo.completed }">

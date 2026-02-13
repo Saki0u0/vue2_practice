@@ -28,8 +28,8 @@
       v-for="todo in completedTodos"
       :key="todo.id"
       :todo="todo"
-      @toggle="$emit('toggle', todo.id)"
-      @remove="$emit('remove', todo.id)"
+      @toggle="$emit('toggle', $event)"
+      @remove="$emit('remove', $event)"
     />
     <p v-if="completedTodos.length === 0" class="text-gray-400">
       No completed tasks.
