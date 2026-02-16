@@ -1,24 +1,19 @@
-<script>
+<script setup>
+  import { computed } from 'vue'
   import TodoItem from '@/components/TodoItem.vue';
 
-  export default {
-    components: {
-      TodoItem,
-    },
+  const props = defineProps({
+    todos: {
+      type: Array,
+      required: true,
+    }
+  })
 
-    props: {
-      todos: {
-        type: Array,
-        required: true,
-      },
-    },
+  const emit = defineEmits(['toggle','remove'])
 
-    computed: {
-      completedTodos() {
-        return (this.todos || []).filter((todo) => todo.completed);
-      },
-    },
-  }
+  const completedTodos = computed(() => {
+    return (props.todos || []).filter(todo => todo.completed);
+  })
 </script>
 
 <template>
@@ -28,8 +23,8 @@
       v-for="todo in completedTodos"
       :key="todo.id"
       :todo="todo"
-      @toggle="$emit('toggle', $event)"
-      @remove="$emit('remove', $event)"
+      @toggle="emit('toggle', $event)"
+      @remove="emit('remove', $event)"
     />
     <p v-if="completedTodos.length === 0" class="text-gray-400">
       No completed tasks.

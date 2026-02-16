@@ -1,22 +1,19 @@
-<script>
+<script setup>
+  import { computed } from 'vue'
   import TodoItem from '@/components/TodoItem.vue';
 
-  export default {
-    components: {
-      TodoItem,
-    },
-    props: {
-      todos: {
-        type: Array,
-        required: true,
-      },
-    },
-    computed: {
-      ActiveTodos() {
-        return (this.todos || []).filter((todo) => !todo.completed);
-      },
-    },
-  }
+  const props = defineProps({
+    todos: {
+      type: Array,
+      required: true,
+    }
+  })
+
+  const emit = defineEmits(['toggle','remove'])
+
+  const ActiveTodos = computed(() => {
+    return (props.todos || []).filter((todo) => !todo.completed)
+  })
 </script>
 
 <template>
@@ -26,8 +23,8 @@
       v-for="todo in ActiveTodos"
       :key="todo.id"
       :todo="todo"
-      @toggle="$emit('toggle', $event)"
-      @remove="$emit('remove', $event)"
+      @toggle="emit('toggle', $event)"
+      @remove="emit('remove', $event)"
     />
   </ul>
   <p v-if="ActiveTodos.length === 0" class="text-gray-400">

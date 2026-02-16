@@ -1,13 +1,6 @@
-<script>
-import Header from '@/components/Header.vue';
-import Sidebar from '@/components/Sidebar.vue';
-
-export default {
-  components: {
-    Header,
-    Sidebar
-  }
-}
+<script setup>
+  import Header from '@/components/Header.vue';
+  import Sidebar from '@/components/Sidebar.vue';
 </script>
 
 <template>
@@ -16,7 +9,7 @@ export default {
 
     <div class="flex flex-1">
       <aside class="w-64 bg-gray-50">
-        <Sidebar @navigate="$emit('navigate', $event)" />
+        <Sidebar />
       </aside>
 
       <main class="flex-1 p-6">
