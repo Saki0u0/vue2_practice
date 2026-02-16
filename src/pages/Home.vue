@@ -9,7 +9,7 @@
     }
   })
 
-  const emit = defineEmits(['add', 'toggle'])
+  const emit = defineEmits(['add', 'toggle', 'remove'])
 
   const newTodo = ref('')
 

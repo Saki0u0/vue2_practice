@@ -11,7 +11,7 @@
 
   const todo = toRef(props, 'todo')
 
-  const emit = defineEmits(['toggle', 'remove'])
+  const emit = defineEmits(['add', 'toggle', 'remove'])
 
   const onToggle = () => {
     emit('toggle', todo.value.id)

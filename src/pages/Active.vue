@@ -9,7 +9,7 @@
     }
   })
 
-  const emit = defineEmits(['toggle','remove'])
+  const emit = defineEmits(['add','toggle','remove'])
 
   const ActiveTodos = computed(() => {
     return (props.todos || []).filter((todo) => !todo.completed)
