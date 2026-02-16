@@ -1,6 +1,5 @@
 <script setup>
   import { Trash2 } from 'lucide-vue-next';
-  import { toRef } from 'vue';
 
   const props = defineProps({
     todo: {
@@ -9,16 +8,14 @@
     },
   })
 
-  const todo = toRef(props, 'todo')
-
-  const emit = defineEmits(['add', 'toggle', 'remove'])
+  const emit = defineEmits(['toggle', 'remove'])
 
   const onToggle = () => {
-    emit('toggle', todo.value.id)
+    emit('toggle',  props.todo.id)
   }
 
   const onRemove = () => {
-    emit('remove', todo.value.id)
+    emit('remove', props.todo.id)
   }
 </script>
 
@@ -27,7 +24,7 @@
     <div>
       <input
         type="checkbox"
-        :checked="todo.completed"
+        :checked="props.todo.completed"
         @change="onToggle"
         class="mr-2 cursor-pointer"
       />

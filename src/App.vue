@@ -15,13 +15,13 @@ const addTodo = (text) => {
   todos.value.push({ id: id++, text, completed: false })
 }
 
-const toggleTodo = (id) => {
-  const todo = todos.value.find((todo) => todo.id === id)
+const toggleTodo = (todoId) => {
+  const todo = todos.value.find((todo) => todo.id === todoId)
   if (todo) todo.completed = !todo.completed
 }
 
-const removeTodo = (id) => {
-  todos.value = todos.value.filter((todo) => todo.id !== id)
+const removeTodo = (todoId) => {
+  todos.value = todos.value.filter((todo) => todo.id !== todoId)
 }
 
 </script>
