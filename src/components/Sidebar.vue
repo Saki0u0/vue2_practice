@@ -1,20 +1,18 @@
-<script></script>
+<script setup></script>
 
 <template>
-  <nav class="p-6">
-    <ul>
-      <li @click="$emit('navigate', 'Home')" class="cursor-pointer mb-4 hover:text-gray-300">
+  <nav class="p-6 flex flex-col">
+      <router-link to="/" class="cursor-pointer mb-4 hover:text-gray-300">
         Home
-      </li>
+      </router-link>
 
-      <li @click="$emit('navigate', 'Completed')" class="cursor-pointer mb-4 hover:text-gray-300">
+      <router-link to="/completed" class="cursor-pointer mb-4 hover:text-gray-300">
         Completed
-      </li>
+      </router-link>
 
-      <li @click="$emit('navigate', 'Active')" class="cursor-pointer hover:text-gray-300">
+      <router-link to="/active" class="cursor-pointer hover:text-gray-300">
         Active
-      </li>
-    </ul>
+      </router-link>
   </nav>
 </template>
 
